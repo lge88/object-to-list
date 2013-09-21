@@ -1,0 +1,49 @@
+{
+  "name": "object-to-list",
+  "repo": "lge88/object-to-list",
+  "description": "object-to-list",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {
+    "lge88/expect.js": "*"
+  },
+  "homepage": "https://github.com/lge88/object-to-list",
+  "scripts": [
+    "lib/decorators/type.js",
+    "lib/decorators/required.js",
+    "lib/decorators/index.js",
+    "lib/decorators/prefix.js",
+    "lib/decorators/flag.js",
+    "lib/decorators/transform.js",
+    "lib/decorators/validate.js",
+    "lib/index.js"
+  ],
+  "styles": [],
+  "main": "lib/index.js",
+  "_rename_": [
+    "component.json",
+    "Makefile",
+    "examples/index.html",
+    "examples/main.js",
+    "examples/main.css",
+    "test/index.html",
+    "test/test.js"
+  ],
+  "_ise_paths_": [
+    "lib",
+    "lib-client"
+  ],
+  "_auto_update_file_list_": {
+    "folders": [
+      "lib"
+    ]
+  },
+  "_auto_index_files_": [
+    "lib/decorators/index.js"
+  ],
+  "paths": [
+    "/home/GL/Develop/js/ise/lib",
+    "/home/GL/Develop/js/ise/lib-client"
+  ]
+}
