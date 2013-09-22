@@ -114,7 +114,7 @@ describe( 'object-to-list', function() {
     var f2 = function() { return toList( n, s2 ); };
 
     expect( f1 ).to.throwError( function( e ) {
-      expect( e.message ).to.be( 'Missing required field' );
+      expect( e.message ).to.be( 'Missing required field position.z' );
     } );
 
     expect( f2() ).to.eql( [ 'node', 1, 1, 2 ] );
@@ -143,15 +143,15 @@ describe( 'object-to-list', function() {
     expect( f1() ).to.eql( [ 'node', 1, 'n', true, 1, 2 ] );
 
     expect( f2 ).to.throwError( function( e ) {
-      expect( e.message ).to.be( 'true is not a boolean' );
+      expect( e.message ).to.be( 'Value of obj.flag true is not a boolean' );
     } );
 
     expect( f3 ).to.throwError( function( e ) {
-      expect( e.message ).to.be( '123 is not a string' );
+      expect( e.message ).to.be( 'Value of obj.name 123 is not a string' );
     } );
 
     expect( f4 ).to.throwError( function( e ) {
-      expect( e.message ).to.be( '1 is not a number' );
+      expect( e.message ).to.be( 'Value of obj.position.x 1 is not a number' );
     } );
   } );
 
