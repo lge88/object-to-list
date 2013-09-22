@@ -27,14 +27,26 @@ describe( 'object-to-list', function() {
   } );
 
   it( '#prefix', function() {
-    var builder = { type: 'BasicBuilder', ndm: 2, ndf: 2 };
-    var schema = [
+    var b = { type: 'BasicBuilder', ndm: 2, ndf: 2 };
+    var s1 = [
       { value: 'model' },
       'type',
       { optional: true, selector: 'ndm', prefix: '-ndm' },
-      { optional: true, selector: 'ndf', prefix: '-ndf' }
+      { optional: true, selector: 'ndf', prefix: '-ndf' },
     ];
-    expect( toList( builder, schema ) ).to.eql( [ 'model', 'BasicBuilder', [ '-ndm', 2 ], [ '-ndf', 2 ] ] );
+
+    var n = { id: 3, position:{ x: 168, y:  0 }, mass: { x: 0.2, y: 0.3, z: 0.4 } };
+    var s2 =[
+      { value: 'node' },
+      { selector: 'id' },
+      { selector: 'position.x' },
+      { selector: 'position.y' },
+      { optional: true, selector: 'position.z' },
+      { optional: true, selector: [ 'mass.x', 'mass.y', 'mass.z' ], prefix: '-mass' }
+    ];
+
+    expect( toList( b, s1 ) ).to.eql( [ 'model', 'BasicBuilder', [ '-ndm', 2 ], [ '-ndf', 2 ] ] );
+    expect( toList( n, s2 ) ).to.eql( [ 'node', 3, 168, 0, [ '-mass', 0.2, 0.3, 0.4 ] ] );
   } );
 
   it( '#flag', function() {
