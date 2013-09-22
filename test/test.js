@@ -35,7 +35,8 @@ describe( 'object-to-list', function() {
       { optional: true, selector: 'ndf', prefix: '-ndf' },
     ];
 
-    var n = { id: 3, position:{ x: 168, y:  0 }, mass: { x: 0.2, y: 0.3, z: 0.4 } };
+    var n1 = { id: 3, position:{ x: 168, y:  0 }, mass: { x: 0.2, y: 0.3, z: 0.4 } };
+    var n2 = { id: 2, position:{ x: 168, y:  0 } };
     var s2 =[
       { value: 'node' },
       { selector: 'id' },
@@ -46,7 +47,8 @@ describe( 'object-to-list', function() {
     ];
 
     expect( toList( b, s1 ) ).to.eql( [ 'model', 'BasicBuilder', [ '-ndm', 2 ], [ '-ndf', 2 ] ] );
-    expect( toList( n, s2 ) ).to.eql( [ 'node', 3, 168, 0, [ '-mass', 0.2, 0.3, 0.4 ] ] );
+    expect( toList( n1, s2 ) ).to.eql( [ 'node', 3, 168, 0, [ '-mass', 0.2, 0.3, 0.4 ] ] );
+    expect( toList( n2, s2 ) ).to.eql( [ 'node', 2, 168, 0 ] );
   } );
 
   it( '#flag', function() {
