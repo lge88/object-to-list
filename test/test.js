@@ -75,6 +75,20 @@ describe( 'object-to-list', function() {
     expect( toList( n1, schema ) ).to.eql( [ 'node', 1, [ 123, 630 ] ] );
   } );
 
+  it( '#convert', function() {
+    var n1 = { id: 1, position: { x: 123.244, y: 630.366 } };
+    var schema = [
+      { value: 'node' },
+      'id',
+      {
+        selector: [ 'position.x', 'position.y' ],
+        transform: function( x ) { return Math.round( x ); },
+        convert: function( list ) { return [ '{' ].concat( list ).concat( '}' ); }
+      }
+    ];
+    expect( toList( n1, schema ) ).to.eql( [ 'node', 1, [ '{', 123, 630, '}' ] ] );
+  } );
+
   it( '#validate', function() {
     var n1 = { id: 1, position: { x: 1, y: 2, z: 3 } };
     var n2 = { id: 1, position: { x: 1, y: 2, z: -3 } };

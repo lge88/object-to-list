@@ -10,14 +10,15 @@
   },
   "homepage": "https://github.com/lge88/object-to-list",
   "scripts": [
-    "lib/decorators/type.js",
+    "lib/index.js",
+    "lib/decorators/transform.js",
+    "lib/decorators/flag.js",
     "lib/decorators/required.js",
     "lib/decorators/index.js",
-    "lib/decorators/prefix.js",
-    "lib/decorators/flag.js",
-    "lib/decorators/transform.js",
+    "lib/decorators/convert.js",
     "lib/decorators/validate.js",
-    "lib/index.js"
+    "lib/decorators/type.js",
+    "lib/decorators/prefix.js"
   ],
   "styles": [],
   "main": "lib/index.js",
