@@ -18,7 +18,8 @@
     "lib/decorators/convert.js",
     "lib/decorators/validate.js",
     "lib/decorators/type.js",
-    "lib/decorators/prefix.js"
+    "lib/decorators/prefix.js",
+    "lib/decorators/surfix.js"
   ],
   "styles": [],
   "main": "lib/index.js",

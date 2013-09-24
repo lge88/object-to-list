@@ -51,6 +51,26 @@ describe( 'object-to-list', function() {
     expect( toList( n2, s2 ) ).to.eql( [ 'node', 2, 168, 0 ] );
   } );
 
+  it( '#surfix', function() {
+    var b = { type: 'Aggregator', section_id: 1, P: 2, T: 3 };
+    var s1 = [
+      { value: 'section' },
+      { selector: 'type' },
+      { optional: true, selector: 'P', surfix: 'P' },
+      { optional: true, selector: 'Mz', surfix: 'Mz' },
+      { optional: true, selector: 'Vy', surfix: 'Vy' },
+      { optional: true, selector: 'My', surfix: 'My' },
+      { optional: true, selector: 'Vz', surfix: 'Vz' },
+      { optional: true, selector: 'T', surfix: 'T' },
+      { optional: true, selector: 'section_id', prefix: '-section' }
+    ];
+    expect( toList( b, s1 ) ).to.eql( [
+      'section', 'Aggregator',
+      [ 2, 'P' ], [ 3, 'T' ],
+      [ '-section', 1 ]
+    ] );
+  } );
+
   it( '#flag', function() {
     var n1 = { id: 1, print: true };
     var n2 = { id: 2 };
